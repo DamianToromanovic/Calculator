@@ -13,6 +13,7 @@ function App() {
         <Display input={input} />
         <Numbers setInput={setInput} />
         <Operators setInput={setInput} />
+        <Request input={input} setInput={setInput} />
       </div>
     </main>
   );
