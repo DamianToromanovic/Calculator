@@ -1,66 +1,23 @@
-const Numbers = () => {
-  return numberTemplate();
-};
+import React from "react";
 
-const allNumb = [
-  {
-    name: "one",
-    value: "1",
-  },
-  {
-    name: "two",
-    value: "2",
-  },
-  {
-    name: "three",
-    value: "3",
-  },
-  {
-    name: "four",
-    value: "4",
-  },
-  {
-    name: "five",
-    value: "5",
-  },
-  {
-    name: "six",
-    value: "6",
-  },
-  {
-    name: "seven",
-    value: "7",
-  },
-  {
-    name: "eight",
-    value: "8",
-  },
-  {
-    name: "nine",
-    value: "9",
-  },
-  {
-    name: "zero",
-    value: "0",
-  },
-];
+function Numbers({ setInput }) {
+  const handleClick = (value) => {
+    setInput((prev) => prev + value);
+  };
 
-const numberTemplate = () => {
   return (
-    <>
-      {allNumb.map((numb) => (
+    <div className="grid grid-cols-3 gap-2">
+      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((number) => (
         <button
-          key={numb.value}
-          name={numb.name}
-          value={numb.value}
-          type="button"
-          className="bg-amber-600 text-black w-10 h-10 text-lg text-center p-2 rounded-full"
+          key={number}
+          onClick={() => handleClick(number.toString())}
+          className="bg-blue-500 text-white p-4 rounded"
         >
-          {numb.value}
+          {number}
         </button>
       ))}
-    </>
+    </div>
   );
-};
+}
 
 export default Numbers;

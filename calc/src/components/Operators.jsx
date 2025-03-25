@@ -1,35 +1,23 @@
-const Operators = () => {
-  return operatorTemplate();
-};
+import React from "react";
 
-const allOperator = [
-  {
-    func: add(),
-    value: "+",
-  },
-  { func: sub(), value: "-" },
-  {
-    func: multiply(),
-    value: "x",
-  },
-  {
-    func: divide(),
-    value: "/",
-  },
-];
+function Operators({ setInput }) {
+  const handleClick = (value) => {
+    setInput((prev) => prev + value);
+  };
 
-const operatorTemplate = () => {
   return (
-    <>
-      {allOperator.map((operator) => {
-        return (
-          <button onClick={operator.func} type="button">
-            {operator.value}
-          </button>
-        );
-      })}
-    </>
+    <div className="grid grid-cols-1 gap-2">
+      {["+", "-", "*", "/"].map((operator) => (
+        <button
+          key={operator}
+          onClick={() => handleClick(operator)}
+          className="bg-red-500 text-white p-4 rounded"
+        >
+          {operator}
+        </button>
+      ))}
+    </div>
   );
-};
+}
 
 export default Operators;
