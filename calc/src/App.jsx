@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./App.css";
 import Operators from "./components/Operators";
 import Display from "./components/Display";
+import Request from "./components/Request";
 
 function App() {
   const [input, setInput] = useState("");
@@ -13,7 +14,7 @@ function App() {
         <Display input={input} />
         <Numbers setInput={setInput} />
         <Operators setInput={setInput} />
-        <Request input={input} setInput={setInput} />
+        <Request setInput={setInput} input={input} />
       </div>
     </main>
   );
